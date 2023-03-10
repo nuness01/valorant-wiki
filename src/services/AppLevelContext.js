@@ -14,6 +14,16 @@ export const AppLevelProvider = ({ children }) => {
     const response = await axios.get(`${API}/agents?isPlayableCharacter=true`);
     setAgents(response.data.data);
   };
+
+  const fetchMaps = async () => {
+    const response = await axios.get(`${API}/maps`);
+    setMaps(response.data.data);
+  };
+
+  const fetchWeapons = async () => {
+    const response = await axios.get(`${API}/weapons`);
+    Setweapons(response.data.data);
+  };
   return (
     <AppLevelContext.Provider
       value={{
@@ -21,6 +31,8 @@ export const AppLevelProvider = ({ children }) => {
         maps,
         weapons,
         fetchAgents,
+        fetchMaps,
+        fetchWeapons,
         setMaps,
         Setweapons,
         setAgents,

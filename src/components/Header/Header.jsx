@@ -1,22 +1,25 @@
 import React from "react";
-import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import styles from "../../styles/Header.module.css";
 import Logo from "../../assets/logo.png";
 
 const Header = () => {
   const location = useLocation();
-  const currentPage = useRef(location.pathname.slice(1));
-  const [page, setPage] = useState(currentPage.current);
 
-  useEffect(() => {
-    if (location.pathname !== "/") {
-      currentPage.current = location.pathname.slice(1);
-    } else {
-      currentPage.current = "home";
-    }
-    setPage(currentPage.current);
-  }, [location]);
+  const navList = [
+    {
+      name: "Weapons",
+      path: "/weapons",
+    },
+    {
+      name: "Agents",
+      path: "/agents",
+    },
+    {
+      name: "Maps",
+      path: "/maps",
+    },
+  ];
 
   return (
     <header>
@@ -25,33 +28,19 @@ const Header = () => {
           <img src={Logo} alt="logo" />
         </Link>
       </div>
-      <nav>
-        <ul className={styles.navList}>
-          <li className={styles.navItem}>
-            <Link
-              to="/weapons"
-              className={page === "weapons" ? styles.activeNav : styles.navLink}
-            >
-              Weapons
+      <nav >
+        <div className={styles.navList}>
+          {navList.map((item) => (
+            <Link key={item.name} to={item.path}>
+              <div
+                className={styles.navLink}
+                active={location.pathname === item.path}
+              >
+                {item.name}
+              </div>
             </Link>
-          </li>
-          <li className={styles.navItem}>
-            <Link
-              to="/agents"
-              className={page === "agents" ? styles.activeNav : styles.navLink}
-            >
-              Agents
-            </Link>
-          </li>
-          <li className={styles.navItem}>
-            <Link
-              to="/maps"
-              className={page === "maps" ? styles.activeNav : styles.navLink}
-            >
-              Maps
-            </Link>
-          </li>
-        </ul>
+          ))}
+        </div>
       </nav>
     </header>
   );
