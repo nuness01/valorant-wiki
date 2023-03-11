@@ -11,11 +11,6 @@ const AgentItem = ({ agent }) => {
       <img src={agent.displayIcon} alt="" />
       <div className={styles.agentInfo}>
         <p className={styles.agentRole}>{agent.role.displayName}</p>
-        <div className={styles.agentAbility}>
-          {agent.abilities.map((ability) => (
-            <p> {ability.displayName}</p>
-          ))}
-        </div>
       </div>
     </div>
   );
