@@ -28,16 +28,16 @@ const Search = ({ placeholder }) => {
       <div className="data">
         <div className="dataResult">
           {weapons
-            .filter((agent) => {
+            .filter((value) => {
               return search.toLowerCase() === ""
-                ? agent
-                : agent.displayName.toLowerCase().includes(search);
+                ? value
+                : value.displayName.toLowerCase().includes(search);
             })
-            .map((weapons) => {
+            .map((value) => {
               return (
                 <div>
                   <Link className="dataItem" to={"/weapons"}>
-                    <p>{weapons.displayName}</p>
+                    <p>{value.displayName}</p>
                   </Link>
                 </div>
               );
@@ -45,16 +45,16 @@ const Search = ({ placeholder }) => {
         </div>
         <div className="dataResult">
           {agents
-            .filter((agent) => {
+            .filter((value) => {
               return search.toLowerCase() === ""
-                ? agent
-                : agent.displayName.toLowerCase().includes(search);
+                ? value
+                : value.displayName.toLowerCase().includes(search);
             })
-            .map((agents) => {
+            .map((value) => {
               return (
                 <div>
                   <Link className="dataItem" to={"/agents"}>
-                    <p>{agents.displayName}</p>
+                    <p>{value.displayName}</p>
                   </Link>
                 </div>
               );
@@ -62,16 +62,16 @@ const Search = ({ placeholder }) => {
         </div>
         <div className="dataResult">
           {maps
-            .filter((agent) => {
+            .filter((value) => {
               return search.toLowerCase() === ""
-                ? agent
-                : agent.displayName.toLowerCase().includes(search);
+                ? value
+                : value.displayName.toLowerCase().includes(search);
             })
-            .map((maps) => {
+            .map((value) => {
               return (
                 <div>
                   <Link className="dataItem" to={"/maps"}>
-                    <p>{maps.displayName}</p>
+                    <p>{value.displayName}</p>
                   </Link>
                 </div>
               );
