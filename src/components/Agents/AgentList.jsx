@@ -1,8 +1,10 @@
 import React from "react";
+import styles from "../../styles/AgentList.module.css";
 import { useContext } from "react";
+
 import AppLevelContext from "../../services/AppLevelContext";
 import AgentItem from "./AgentItem";
-import styles from "../../styles/AgentList.module.css";
+
 
 const AgentList = () => {
   const { agents } = useContext(AppLevelContext);

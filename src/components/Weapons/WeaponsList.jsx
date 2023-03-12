@@ -1,8 +1,9 @@
 import React from "react";
 import { useContext } from "react";
+import styles from "../../styles/WeaponsList.module.css";
+
 import AppLevelContext from "../../services/AppLevelContext";
 import WeaponItem from "./WeaponItem";
-import styles from "../../styles/WeaponsList.module.css";
 
 const WeaponList = () => {
   const { weapons } = useContext(AppLevelContext);

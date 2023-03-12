@@ -3,8 +3,10 @@ import { Outlet } from "react-router-dom";
 import { createContext } from "react";
 import { createGlobalStyle } from "styled-components";
 import ReactSwitch from "react-switch";
-import Header from "./components/Header/Header.jsx";
 import "./App.css";
+
+import Header from "./components/Header/Header.jsx";
+
 
 export const ThemeContext = createContext(null);
 

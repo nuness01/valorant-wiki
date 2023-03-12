@@ -1,5 +1,4 @@
 import React from "react";
-
 import styles from "../../styles/Maps.module.css";
 
 const MapsItem = ({ map }) => {

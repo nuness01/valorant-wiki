@@ -1,10 +1,9 @@
 import React from "react";
 import "../../styles/Search.css";
+import { useContext, useState } from "react";
+import { Link } from "react-router-dom";
 
 import AppLevelContext from "../../services/AppLevelContext";
-import { useContext, useState } from "react";
-
-import { Link } from "react-router-dom";
 
 const Search = ({ placeholder }) => {
   const { agents, maps, weapons } = useContext(AppLevelContext);

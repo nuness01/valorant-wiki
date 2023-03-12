@@ -5,11 +5,11 @@ import MapList from "../components/Maps/MapsList";
 import AppLevelContect from "../services/AppLevelContext";
 
 const Maps = () => {
-  const { fetchMaps } = useContext(AppLevelContect);
+  const { getMaps } = useContext(AppLevelContect);
 
   useEffect(() => {
-    fetchMaps();
-  }, [fetchMaps]);
+    getMaps();
+  }, [getMaps]);
 
   return (
     <>

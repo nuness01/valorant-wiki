@@ -1,8 +1,9 @@
 import React from "react";
+import styles from "../../styles/MapsList.module.css";
 import { useContext } from "react";
+
 import AppLevelContext from "../../services/AppLevelContext";
 import MapsItem from "./MapsItem";
-import styles from "../../styles/MapsList.module.css";
 
 const MapList = () => {
   const { maps } = useContext(AppLevelContext);

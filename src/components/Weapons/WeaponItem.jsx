@@ -1,3 +1,4 @@
+import React from "react";
 import styles from "../../styles/Weapons.module.css";
 
 const WeaponItem = ({ weapon }) => {

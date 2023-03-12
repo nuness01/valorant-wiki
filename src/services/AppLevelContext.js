@@ -10,17 +10,17 @@ export const AppLevelProvider = ({ children }) => {
   const [maps, setMaps] = useState([]);
   const [weapons, Setweapons] = useState([]);
 
-  const fetchAgents = async () => {
+  const getAgents = async () => {
     const response = await axios.get(`${API}/agents?isPlayableCharacter=true`);
     setAgents(response.data.data);
   };
 
-  const fetchMaps = async () => {
+  const getMaps = async () => {
     const response = await axios.get(`${API}/maps`);
     setMaps(response.data.data);
   };
 
-  const fetchWeapons = async () => {
+  const getWeapons = async () => {
     const response = await axios.get(`${API}/weapons`);
     Setweapons(response.data.data);
   };
@@ -30,9 +30,9 @@ export const AppLevelProvider = ({ children }) => {
         agents,
         maps,
         weapons,
-        fetchAgents,
-        fetchMaps,
-        fetchWeapons,
+        getAgents,
+        getMaps,
+        getWeapons,
         setMaps,
         Setweapons,
         setAgents,
