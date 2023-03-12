@@ -28,14 +28,11 @@ const Header = () => {
           <img src={Logo} alt="logo" />
         </Link>
       </div>
-      <nav >
+      <nav>
         <div className={styles.navList}>
           {navList.map((item) => (
             <Link key={item.name} to={item.path}>
-              <div
-                className={styles.navLink}
-                active={location.pathname === item.path}
-              >
+              <div className={styles.navLink} active={location.toString()}>
                 {item.name}
               </div>
             </Link>

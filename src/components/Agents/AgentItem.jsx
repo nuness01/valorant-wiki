@@ -1,6 +1,8 @@
 import React from "react";
 import styles from "../../styles/Agent.module.css";
 
+
+
 const AgentItem = ({ agent }) => {
   return (
     <div className={styles.agentCard}>
@@ -15,5 +17,6 @@ const AgentItem = ({ agent }) => {
     </div>
   );
 };
+
 
 export default AgentItem;

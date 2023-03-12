@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from "react";
-
 import { Outlet } from "react-router-dom";
-
-import "./styles/App.css";
-import Header from "./components/Header/Header.jsx";
-
 import { createContext } from "react";
-import styled, { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from "styled-components";
+import ReactSwitch from "react-switch";
+import Header from "./components/Header/Header.jsx";
+import "./App.css";
 
 export const ThemeContext = createContext(null);
 
@@ -24,13 +22,11 @@ const App = () => {
   body {
     background-color: ${(props) => props.theme.background};
     color: ${(props) => props.theme.text};
-  }
-`;
-
-  const AppContainer = styled.div`
-    background-color: ${(props) => props.theme.background};
+  } 
+  .div{
+  background-color: ${(props) => props.theme.background};
     color: ${(props) => props.theme.text};
-  `;
+  }`;
 
   const [isDarkMode, setIsDarkMode] = useState(
     localStorage.getItem("darkMode") === "true"
@@ -48,13 +44,14 @@ const App = () => {
 
   return (
     <div>
-      <Header />
       <GlobalStyle theme={theme} />
-      <AppContainer className="button" theme={theme}>
-        <button className="ui button" onClick={handleToggleTheme}>
-          Theme Change
-        </button>
-      </AppContainer>
+      <Header />
+      <div className="button">
+        <ReactSwitch
+          onChange={handleToggleTheme}
+          checked={theme === darkTheme}
+        />
+      </div>
       <Outlet />
     </div>
   );

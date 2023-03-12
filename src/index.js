@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "./styles/index.css";
+import "./index.css";
 
 import { AppLevelProvider } from "./services/AppLevelContext";
 import { RouterProvider } from "react-router-dom";

@@ -27,6 +27,23 @@ const Search = ({ placeholder }) => {
       </div>
       <div className="data">
         <div className="dataResult">
+          {weapons
+            .filter((agent) => {
+              return search.toLowerCase() === ""
+                ? agent
+                : agent.displayName.toLowerCase().includes(search);
+            })
+            .map((weapons) => {
+              return (
+                <div>
+                  <Link className="dataItem" to={"/weapons"}>
+                    <p>{weapons.displayName}</p>
+                  </Link>
+                </div>
+              );
+            })}
+        </div>
+        <div className="dataResult">
           {agents
             .filter((agent) => {
               return search.toLowerCase() === ""
@@ -55,23 +72,6 @@ const Search = ({ placeholder }) => {
                 <div>
                   <Link className="dataItem" to={"/maps"}>
                     <p>{maps.displayName}</p>
-                  </Link>
-                </div>
-              );
-            })}
-        </div>
-        <div className="dataResult">
-          {weapons
-            .filter((agent) => {
-              return search.toLowerCase() === ""
-                ? agent
-                : agent.displayName.toLowerCase().includes(search);
-            })
-            .map((weapons) => {
-              return (
-                <div>
-                  <Link className="dataItem" to={"/weapons"}>
-                    <p>{weapons.displayName}</p>
                   </Link>
                 </div>
               );
