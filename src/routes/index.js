@@ -33,4 +33,6 @@ export const router = createBrowserRouter([
       },
     ],
   },
-]);
+], {
+  basename: "/valorant-wiki"
+});
