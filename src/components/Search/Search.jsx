@@ -1,80 +1,36 @@
 import React from "react";
 import "../../styles/Search.css";
-import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-import AppLevelContext from "../../services/AppLevelContext";
+const Search = () => {
+  const [input, setInput] = useState("");
+  const navigate = useNavigate();
 
-const Search = ({ placeholder }) => {
-  const { agents, maps, weapons } = useContext(AppLevelContext);
-
-  const [search, setSearch] = useState("");
-
-  const handleSearchInputChange = (event) => {
-    setSearch(event.target.value);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    navigate(input);
   };
 
   return (
     <div className="search">
       <div className="searchInput">
-        <input
-          type="text"
-          placeholder={placeholder}
-          value={search}
-          onChange={handleSearchInputChange}
-        />
-      </div>
-      <div className="data">
-        <div className="dataResult">
-          {weapons
-            .filter((value) => {
-              return search.toLowerCase() === ""
-                ? value
-                : value.displayName.toLowerCase().includes(search);
-            })
-            .map((value) => {
-              return (
-                <div>
-                  <Link className="dataItem" to={"/weapons"}>
-                    <p>{value.displayName}</p>
-                  </Link>
-                </div>
-              );
-            })}
+        <div>
+          <h2>Search the 3 topics above</h2>
         </div>
-        <div className="dataResult">
-          {agents
-            .filter((value) => {
-              return search.toLowerCase() === ""
-                ? value
-                : value.displayName.toLowerCase().includes(search);
-            })
-            .map((value) => {
-              return (
-                <div>
-                  <Link className="dataItem" to={"/agents"}>
-                    <p>{value.displayName}</p>
-                  </Link>
-                </div>
-              );
-            })}
-        </div>
-        <div className="dataResult">
-          {maps
-            .filter((value) => {
-              return search.toLowerCase() === ""
-                ? value
-                : value.displayName.toLowerCase().includes(search);
-            })
-            .map((value) => {
-              return (
-                <div>
-                  <Link className="dataItem" to={"/maps"}>
-                    <p>{value.displayName}</p>
-                  </Link>
-                </div>
-              );
-            })}
+        <br></br>
+        <div>
+          <form onSubmit={handleSubmit}>
+            <input
+              type="text"
+              className="input"
+              placeholder="Search..."
+              value={input}
+              onChange={(e) => {
+                setInput(e.target.value);
+              }}
+            />
+          </form>
         </div>
       </div>
     </div>
