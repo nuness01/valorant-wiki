@@ -9,9 +9,9 @@ header {
 
 header .brand a {
   display: flex;
-  height: 100%;
   align-items: center;
   justify-content: center;
+  height: 100%;
   font-size: 1.3rem;
 }
 
@@ -23,9 +23,6 @@ header .brand img {
   height: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-around;
-  padding: 10px;
-  color: #ff4655;
 }
 
 .navLink {
@@ -35,5 +32,3 @@ header .brand img {
   font-size: 2rem;
   border-radius: 10px;
 }
-
-

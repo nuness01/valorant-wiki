@@ -5,7 +5,6 @@ import { useContext } from "react";
 import AppLevelContext from "../../services/AppLevelContext";
 import AgentItem from "./AgentItem";
 
-
 const AgentList = () => {
   const { agents } = useContext(AppLevelContext);
   return (

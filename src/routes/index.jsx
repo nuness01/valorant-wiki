@@ -5,34 +5,42 @@ import Home from "../pages/Home";
 import Agents from "../pages/Agents";
 import Maps from "../pages/Maps";
 import ErrorPage from "../pages/ErrorPage";
+import SingleAgent from "../pages/SingleAgentPage";
 
-export const router = createBrowserRouter([
+export const router = createBrowserRouter(
+  [
+    {
+      path: "/",
+      element: <App />,
+      children: [
+        {
+          index: true,
+          element: <Home />,
+        },
+        {
+          path: "/weapons",
+          element: <Weapons />,
+        },
+        {
+          path: "/agents",
+          element: <Agents />,
+        },
+        {
+          path: "/agents/:agentUuid",
+          element: <SingleAgent />,
+        },
+        {
+          path: "/maps",
+          element: <Maps />,
+        },
+        {
+          path: "*",
+          element: <ErrorPage />,
+        },
+      ],
+    },
+  ],
   {
-    path: "/",
-    element: <App />,
-    children: [
-      {
-        index: true,
-        element: <Home />,
-      },
-      {
-        path: "/weapons",
-        element: <Weapons />,
-      },
-      {
-        path: "/agents",
-        element: <Agents />,
-      },
-      {
-        path: "/maps",
-        element: <Maps />,
-      },
-      {
-        path: "*",
-        element: <ErrorPage />,
-      },
-    ],
-  },
-], {
-  basename: "/valorant-wiki"
-});
+    basename: "/valorant-wiki",
+  }
+);

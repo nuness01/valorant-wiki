@@ -2,10 +2,10 @@ import React from "react";
 import { useContext, useEffect } from "react";
 
 import AgentList from "../components/Agents/AgentList";
-import AppLevelContect from "../services/AppLevelContext";
+import AppLevelContext from "../services/AppLevelContext";
 
 const Agents = () => {
-  const { getAgents } = useContext(AppLevelContect);
+  const { getAgents } = useContext(AppLevelContext);
 
   useEffect(() => {
     getAgents();
